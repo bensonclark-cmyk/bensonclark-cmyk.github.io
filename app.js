@@ -3,13 +3,16 @@ var S=window.SITE||{},M=window.MAPS||[],C=window.CHALLENGE||{days:[]};
 function $(i){return document.getElementById(i)}
 function e(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n}
 function pic(src,alt){if(!src)return e('div','noimg','Image not added yet');var i=e('img');i.alt=alt||'';i.loading='lazy';i.onerror=function(){i.replaceWith(e('div','noimg','Image not added yet'))};i.src=src;return i}
+function imgs(m){var a=m.images||(m.image?[m.image]:[]);return a.map(function(x){return typeof x==='string'?{src:x}:x})}
 document.title=S.name+', maps and geospatial work';
 $('name').textContent=S.name;$('role').textContent=S.role||'';
 (S.intro||[]).forEach(function(t){$('intro').appendChild(e('p',null,t))});
 
-var dlg=$('dlg'),cur=[],ix=0;
-function show(items,i){cur=items;ix=i;var m=items[i],info=$('dinfo');
-$('dfig').textContent='';$('dfig').appendChild(pic(m.image,m.title));
+var dlg=$('dlg'),cur=[],ix=0,gi=0;
+function show(items,i,g){cur=items;ix=i;gi=g||0;var m=items[i],list=imgs(m),info=$('dinfo'),fig=$('dfig'),pick=list[gi]||{};
+fig.textContent='';var main=e('div','dmain');main.appendChild(pic(pick.src,m.title));fig.appendChild(main);
+if(pick.caption)fig.appendChild(e('p','cap',pick.caption));
+if(list.length>1){var th=e('div','thumbs');list.forEach(function(x,k){var b=e('button');b.type='button';b.setAttribute('aria-label','Image '+(k+1));b.setAttribute('aria-current',k===gi);b.appendChild(pic(x.src,''));b.onclick=function(){show(cur,ix,k)};th.appendChild(b)});fig.appendChild(th)}
 info.textContent='';info.appendChild(e('p','soft',m.when));info.appendChild(e('h3',null,m.title));
 if(m.description)info.appendChild(e('p',null,m.description));
 var dl=e('dl');[['Data',m.data],['CRS',m.crs],['Tools',m.tools]].forEach(function(r){if(r[1]){dl.appendChild(e('dt',null,r[0]));dl.appendChild(e('dd',null,r[1]))}});
@@ -29,8 +32,8 @@ var list=M.filter(function(m){return cat==='All'||m.category===cat}).sort(functi
 var shown=list.map(function(m){return Object.assign({},m,{when:m.year+(m.category?', '+m.category:'')})});
 var years=[];list.forEach(function(m){if(years.indexOf(m.year)<0)years.push(m.year)});
 years.forEach(function(y){var g=e('div','yr');g.appendChild(e('h3',null,y));var grid=e('div','grid');
-shown.forEach(function(m,i){if(m.year!==y)return;var c=e('button','card');c.type='button';
-var t=e('div','thumb');t.appendChild(pic(m.image,m.title));c.appendChild(t);
+shown.forEach(function(m,i){if(m.year!==y)return;var c=e('button','card'),l=imgs(m);c.type='button';
+var t=e('div','thumb');t.appendChild(pic(l[0]&&l[0].src,m.title));if(l.length>1)t.appendChild(e('div','count',l.length+' images'));c.appendChild(t);
 c.appendChild(e('strong',null,m.title));if(m.category)c.appendChild(e('span',null,m.category));
 c.onclick=function(){show(shown,i)};grid.appendChild(c)});
 g.appendChild(grid);box.appendChild(g)})}
@@ -44,7 +47,7 @@ var done=(C.days||[]).slice().sort(function(a,b){return a.day-b.day}).map(functi
 $('cintro').textContent=(C.intro||'')+(done.length?' '+done.length+' of 30 done.':'');
 for(var n=1;n<=30;n++){(function(n){var idx=done.findIndex(function(d){return d.day===n});var c;
 if(idx<0){c=e('div','day');c.appendChild(e('b',null,n))}
-else{c=e('button','day');c.type='button';c.title=done[idx].title;c.appendChild(pic(done[idx].image,done[idx].title));c.appendChild(e('b',null,n));c.onclick=function(){show(done,idx)}}
+else{var f=imgs(done[idx])[0];c=e('button','day');c.type='button';c.title=done[idx].title;c.appendChild(pic(f&&f.src,done[idx].title));c.appendChild(e('b',null,n));c.onclick=function(){show(done,idx)}}
 $('days').appendChild(c)})(n)}
 
 (S.experience||[]).forEach(function(x){var li=e('li');li.appendChild(e('span',null,x.when));li.appendChild(e('div',null,x.what));$('exp').appendChild(li)});
