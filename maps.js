@@ -84,12 +84,13 @@ window.CHALLENGE = {
   intro: "One map a day for November, built from open data.",
   days: [
     {
-      day: 1,
-      title: "Seismic Pulse of the Philippines",
-      image: "images/challenge/day01.jpg",
-      description: "Earthquakes of magnitude 4.5 and above from 2020 to 2026.",
-      data: "USGS, NAMRIA",
-      crs: "EPSG:32651"
-    }
+  day: 1,
+  title: "Seismic Pulse of the Philippines: Distribution of M4.5+ Earthquakes (2020-2026)",
+  image: "images/challenge/day01.jpg",
+  description: "Earthquakes of magnitude 4.5 and above from 2020 to 2026.",
+  data: "USGS Earthquakes Hazards Program, NAMRIA",
+  crs: "EPSG:32651",
+  tools: "QGIS"
+}
   ]
 };
