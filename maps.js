@@ -30,7 +30,7 @@ window.SITE = {
     { title: "Web maps and field data", text: "uMap and Tasking Manager projects, KoboToolbox forms and PostGIS databases." }
   ],
   contactText: "Tell me what the map is for, who will read it and when you need it.",
-  email: "your-email@example.com",
+  email: "bensonclarkdagalea@gmail.com",
   location: "Baybay City, Leyte, Philippines",
   links: [
     // { label: "LinkedIn", url: "https://www.linkedin.com/in/your-name" },
