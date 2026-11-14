@@ -22,7 +22,7 @@ h3{font-size:14px;font-weight:600;margin:0 0 10px}
 .chips button{font:inherit;font-size:13px;padding:4px 12px;border:1px solid var(--line);background:none;color:var(--ink);cursor:pointer;border-radius:2px}
 .chips button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .yr h3{color:var(--soft);margin:28px 0 12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.grid{display:grid;align-items:start;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
 .card{all:unset;display:block;cursor:pointer;box-sizing:border-box}
 .card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .thumb{aspect-ratio:4/3;background:var(--panel);overflow:hidden}
