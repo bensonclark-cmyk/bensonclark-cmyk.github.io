@@ -49,11 +49,13 @@ window.MAPS = [
     category: "Coursework",
     image: "images/remote-sensing-based-map-of-seagrass-extent-and-co.jpg",
     data: "Sentinel-2 Imagery",
+    crs: "EPSG:32651",
     tools: "QGIS, GEE"
   },
   {
     title: "Seismic Hazard Susceptibility Map of Ormoc City, Leyte (2025)",
     year: 2025,
+    category: "Project",
     image: "images/seismic-hazard-susceptibility-map-of-ormoc-city-le.jpg",
     data: "PHIVOLCS, USGS, OSM, NOAA, GADM",
     crs: "EPSG:32651",
