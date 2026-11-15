@@ -32,10 +32,16 @@ var list=M.filter(function(m){return cat==='All'||m.category===cat}).sort(functi
 var shown=list.map(function(m){return Object.assign({},m,{when:m.year+(m.category?', '+m.category:'')})});
 var years=[];list.forEach(function(m){if(years.indexOf(m.year)<0)years.push(m.year)});
 years.forEach(function(y){var g=e('div','yr');g.appendChild(e('h3',null,y));var grid=e('div','grid');
-shown.forEach(function(m,i){if(m.year!==y)return;var c=e('button','card'),l=imgs(m);c.type='button';
-var t=e('div','thumb');t.appendChild(pic(l[0]&&l[0].src,m.title,(m.link||m.embed)?'Interactive map':null));if(l.length>1)t.appendChild(e('div','count',l.length+' images'));c.appendChild(t);
+shown.forEach(function(m,i){if(m.year!==y)return;var c=e('div','card'),l=imgs(m),k=0,msg=(m.link||m.embed)?'Interactive map':null;
+c.setAttribute('role','button');c.tabIndex=0;
+var t=e('div','thumb'),cv=e('div','cv');function cover(n){cv.textContent='';cv.appendChild(pic(l[n]&&l[n].src,m.title,msg))}cover(0);t.appendChild(cv);
+if(l.length>1){var d=e('div','dots');l.forEach(function(x,n){var b=e('button');b.type='button';b.setAttribute('aria-label','Show image '+(n+1)+' of '+l.length);b.setAttribute('aria-current',n===0);
+b.onclick=function(ev){ev.stopPropagation();k=n;cover(n);Array.prototype.forEach.call(d.children,function(z,j){z.setAttribute('aria-current',j===n)})};d.appendChild(b)});t.appendChild(d)}
+c.appendChild(t);
 c.appendChild(e('strong',null,m.title));if(m.category)c.appendChild(e('span',null,m.category));
-c.onclick=function(){show(shown,i)};grid.appendChild(c)});
+c.onclick=function(){show(shown,i,k)};
+c.onkeydown=function(ev){if(ev.target===c&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();show(shown,i,k)}};
+grid.appendChild(c)});
 g.appendChild(grid);box.appendChild(g)})}
 var cats=[];M.forEach(function(m){if(m.category&&cats.indexOf(m.category)<0)cats.push(m.category)});
 if(cats.length>1)['All'].concat(cats).forEach(function(c){var b=e('button',null,c);b.type='button';b.setAttribute('aria-pressed',c===cat);

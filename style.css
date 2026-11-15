@@ -71,7 +71,6 @@ dt{color:var(--soft)}dd{margin:0}
 .thumbs button:focus-visible{outline:2px solid var(--accent)}
 .thumbs img{object-fit:contain}
 .thumbs .noimg{min-height:0;font-size:10px;padding:0}
-.card .count{position:absolute;right:6px;bottom:6px;background:var(--bg);color:var(--ink);font-size:12px;padding:1px 8px}
 
 /* universal accent: change --accent and --accent-ink at the top to recolor the whole site */
 body{border-top:4px solid var(--accent)}
@@ -88,3 +87,10 @@ button.day b{color:var(--accent-ink)}
 dialog{border-top:3px solid var(--accent)}
 
 .dmain iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
+
+.cv{position:absolute;inset:0}
+.dots{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);display:flex;background:var(--bg);padding:2px 5px;border-radius:99px}
+.dots button{all:unset;box-sizing:border-box;width:18px;height:18px;display:grid;place-items:center;cursor:pointer}
+.dots button::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ink);opacity:.28}
+.dots button[aria-current="true"]::before{opacity:1}
+.dots button:focus-visible{outline:2px solid var(--accent);border-radius:50%}
