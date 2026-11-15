@@ -67,11 +67,12 @@ window.MAPS = [
     tools: "ESP32, JSN-SR04T, GPS"
   },
   {
-    title: "Ormoc City seismic hazard map",
+    title: "Seismic Hazard Susceptibility Map of Ormoc City, Leyte (2025)",
     year: 2025,
-    category: "Hazard",
-    image: "images/ormoc-ahp.jpg",
-    description: "Seismic hazard map of Ormoc City using the Analytic Hierarchy Process (AHP)."
+    image: "images/seismic-hazard-susceptibility-map-of-ormoc-city-le.jpg",
+    data: "PHIVOLCS, USGS, OSM, NOAA, GADM",
+    crs: "EPSG:32651",
+    tools: "QGIS"
   }
   // , { title: "...", year: 2025, category: "...", image: "images/...jpg", description: "...", data: "...", crs: "EPSG:...", tools: "...", link: "https://..." }
 ];
