@@ -71,6 +71,19 @@ window.MAPS = [
     link: "https://javier-parcels.netlify.app/",
     embed: "https://javier-parcels.netlify.app/"
   },
+   ,
+  {
+    title: "Land Cover Classification Map of Orion, Bataan",
+    year: 2026,
+    images: [
+      { src: "images/land-cover-classification-map-of-orion-bataan-1.jpg" },
+      { src: "images/land-cover-classification-map-of-orion-bataan-2.jpg" },
+      { src: "images/land-cover-classification-map-of-orion-bataan-3.jpg" }
+    ],
+    description: "This map shows land cover classification of Orion, Bataan using three (3) different classification algorithms.",
+    data: "Sentinel-2 Imagery",
+    tools: "QGIS"
+  },
   // , { title: "...", year: 2025, category: "...", image: "images/...jpg", description: "...", data: "...", crs: "EPSG:...", tools: "...", link: "https://..." }
 ];
 
