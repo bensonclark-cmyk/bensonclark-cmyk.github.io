@@ -44,27 +44,12 @@ window.SITE = {
    Fields you leave out are simply not shown. */
 window.MAPS = [
   {
-    title: "Land cover change and 2030 projection, Pagbanganan River Basin",
+    title: "Remote Sensing-Based Map of Seagrass Extent and Condition Via Water-Adjusted Vegetation Index (WAVI) in Cuatro Islas, Inopacan Leyte",
     year: 2026,
-    category: "Land cover",
-    image: "images/pagbanganan-landcover.jpg",
-    description: "Land cover dynamics in Baybay City, Leyte, with a 2030 projection comparing FLUS and PLUS.",
-    tools: "GeoSOS-FLUS, PLUS"
-  },
-  {
-    title: "Seagrass and WAVI, Cuatro Islas",
-    year: 2026,
-    category: "Coastal",
-    image: "images/cuatro-islas-seagrass.jpg",
-    description: "GIS Day Map Challenge 2026 entry on seagrass and WAVI in the Cuatro Islas."
-  },
-  {
-    title: "Bathymetric USV prototype",
-    year: 2026,
-    category: "Survey",
-    image: "images/usv-prototype.jpg",
-    description: "ESP32 survey boat with a JSN-SR04T sonar, GPS and SD card logging, built to collect depth points for bathymetric mapping.",
-    tools: "ESP32, JSN-SR04T, GPS"
+    category: "Coursework",
+    image: "images/remote-sensing-based-map-of-seagrass-extent-and-co.jpg",
+    data: "Sentinel-2 Imagery",
+    tools: "QGIS, GEE"
   },
   {
     title: "Seismic Hazard Susceptibility Map of Ormoc City, Leyte (2025)",
