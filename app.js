@@ -2,7 +2,7 @@
 var S=window.SITE||{},M=window.MAPS||[],C=window.CHALLENGE||{days:[]};
 function $(i){return document.getElementById(i)}
 function e(t,c,x){var n=document.createElement(t);if(c)n.className=c;if(x!=null)n.textContent=x;return n}
-function pic(src,alt){if(!src)return e('div','noimg','Image not added yet');var i=e('img');i.alt=alt||'';i.loading='lazy';i.onerror=function(){i.replaceWith(e('div','noimg','Image not added yet'))};i.src=src;return i}
+function pic(src,alt,msg){msg=msg||'Image not added yet';if(!src)return e('div','noimg',msg);var i=e('img');i.alt=alt||'';i.loading='lazy';i.onerror=function(){i.replaceWith(e('div','noimg',msg))};i.src=src;return i}
 function imgs(m){var a=m.images||(m.image?[m.image]:[]);return a.map(function(x){return typeof x==='string'?{src:x}:x})}
 document.title=S.name+', maps and geospatial work';
 $('name').textContent=S.name;$('role').textContent=S.role||'';
@@ -10,7 +10,7 @@ $('name').textContent=S.name;$('role').textContent=S.role||'';
 
 var dlg=$('dlg'),cur=[],ix=0,gi=0;
 function show(items,i,g){cur=items;ix=i;gi=g||0;var m=items[i],list=imgs(m),info=$('dinfo'),fig=$('dfig'),pick=list[gi]||{};
-fig.textContent='';var main=e('div','dmain');main.appendChild(pic(pick.src,m.title));fig.appendChild(main);
+fig.textContent='';var main=e('div','dmain');if(m.embed){var fr=e('iframe');fr.src=m.embed;fr.title=m.title;fr.loading='lazy';fr.setAttribute('allowfullscreen','');main.appendChild(fr)}else main.appendChild(pic(pick.src,m.title,m.link?'Interactive map':null));fig.appendChild(main);
 if(pick.caption)fig.appendChild(e('p','cap',pick.caption));
 if(list.length>1){var th=e('div','thumbs');list.forEach(function(x,k){var b=e('button');b.type='button';b.setAttribute('aria-label','Image '+(k+1));b.setAttribute('aria-current',k===gi);b.appendChild(pic(x.src,''));b.onclick=function(){show(cur,ix,k)};th.appendChild(b)});fig.appendChild(th)}
 info.textContent='';info.appendChild(e('p','soft',m.when));info.appendChild(e('h3',null,m.title));
@@ -33,7 +33,7 @@ var shown=list.map(function(m){return Object.assign({},m,{when:m.year+(m.categor
 var years=[];list.forEach(function(m){if(years.indexOf(m.year)<0)years.push(m.year)});
 years.forEach(function(y){var g=e('div','yr');g.appendChild(e('h3',null,y));var grid=e('div','grid');
 shown.forEach(function(m,i){if(m.year!==y)return;var c=e('button','card'),l=imgs(m);c.type='button';
-var t=e('div','thumb');t.appendChild(pic(l[0]&&l[0].src,m.title));if(l.length>1)t.appendChild(e('div','count',l.length+' images'));c.appendChild(t);
+var t=e('div','thumb');t.appendChild(pic(l[0]&&l[0].src,m.title,(m.link||m.embed)?'Interactive map':null));if(l.length>1)t.appendChild(e('div','count',l.length+' images'));c.appendChild(t);
 c.appendChild(e('strong',null,m.title));if(m.category)c.appendChild(e('span',null,m.category));
 c.onclick=function(){show(shown,i)};grid.appendChild(c)});
 g.appendChild(grid);box.appendChild(g)})}
