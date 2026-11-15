@@ -75,6 +75,7 @@ window.MAPS = [
   {
     title: "Land Cover Classification Map of Orion, Bataan",
     year: 2026,
+    category: "Project",
     images: [
       { src: "images/land-cover-classification-map-of-orion-bataan-1.jpg" },
       { src: "images/land-cover-classification-map-of-orion-bataan-2.jpg" },
