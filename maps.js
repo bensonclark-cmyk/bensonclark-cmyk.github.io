@@ -44,7 +44,7 @@ window.SITE = {
    Fields you leave out are simply not shown. */
 window.MAPS = [
   {
-    title: "Remote Sensing-Based Map of Seagrass Extent and Condition Via Water-Adjusted Vegetation Index (WAVI) in Cuatro Islas, Inopacan Leyte",
+    title: "Remote Sensing-Based Map of Seagrass Extent and Condition Via Water-Adjusted Vegetation Index (WAVI) in Cuatro Islas, Leyte",
     year: 2026,
     category: "Coursework",
     image: "images/remote-sensing-based-map-of-seagrass-extent-and-co.jpg",
