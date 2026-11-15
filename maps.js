@@ -61,6 +61,16 @@ window.MAPS = [
     crs: "EPSG:32651",
     tools: "QGIS"
   },
+   ,
+  {
+    title: "Land Parcels Map of Poblacion Zone 1, Javier",
+    year: 2026,
+    category: "Coursework",
+    data: "LGU Javier",
+    tools: "QGIS, Netlify",
+    link: "https://javier-parcels.netlify.app/",
+    embed: "https://javier-parcels.netlify.app/"
+  },
   // , { title: "...", year: 2025, category: "...", image: "images/...jpg", description: "...", data: "...", crs: "EPSG:...", tools: "...", link: "https://..." }
 ];
 
