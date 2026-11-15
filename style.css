@@ -1,5 +1,5 @@
-:root{--bg:#fafaf8;--ink:#1c2b2e;--soft:#667a7d;--line:#1c2b2e24;--panel:#edf0ef;--accent:#1d6a8a}
-@media (prefers-color-scheme:dark){:root{--bg:#10191b;--ink:#e4ecea;--soft:#8fa5a7;--line:#e4ecea26;--panel:#172326;--accent:#6fb4d4}}
+:root{--bg:#fafaf8;--ink:#1c2b2e;--soft:#667a7d;--line:#1c2b2e24;--panel:#edf0ef;--accent:#d9541e;--accent-ink:#b8420f}
+@media (prefers-color-scheme:dark){:root{--bg:#10191b;--ink:#e4ecea;--soft:#8fa5a7;--line:#e4ecea26;--panel:#172326;--accent:#ff7a45;--accent-ink:#ff9468}}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "Instrument Sans",system-ui,sans-serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
@@ -72,3 +72,17 @@ dt{color:var(--soft)}dd{margin:0}
 .thumbs img{object-fit:contain}
 .thumbs .noimg{min-height:0;font-size:10px;padding:0}
 .card .count{position:absolute;right:6px;bottom:6px;background:var(--bg);color:var(--ink);font-size:12px;padding:1px 8px}
+
+/* universal accent: change --accent and --accent-ink at the top to recolor the whole site */
+body{border-top:4px solid var(--accent)}
+::selection{background:var(--accent);color:#fff}
+nav a:hover{color:var(--accent-ink)}
+h2::before{content:"";display:inline-block;width:18px;height:3px;background:var(--accent);margin-right:10px;vertical-align:middle}
+.yr h3{color:var(--accent-ink)}
+.chips button:hover{border-color:var(--accent)}
+.chips button[aria-pressed="true"]{background:var(--accent-ink);color:var(--bg);border-color:var(--accent-ink)}
+.card:hover strong{color:var(--accent-ink)}
+button.day{border:2px solid var(--accent)}
+button.day b{color:var(--accent-ink)}
+#email,.dside a{color:var(--accent-ink);text-decoration-thickness:2px;text-underline-offset:3px}
+dialog{border-top:3px solid var(--accent)}
