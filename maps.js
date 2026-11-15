@@ -73,7 +73,7 @@ window.MAPS = [
     data: "PHIVOLCS, USGS, OSM, NOAA, GADM",
     crs: "EPSG:32651",
     tools: "QGIS"
-  }
+  },
   // , { title: "...", year: 2025, category: "...", image: "images/...jpg", description: "...", data: "...", crs: "EPSG:...", tools: "...", link: "https://..." }
 ];
 
